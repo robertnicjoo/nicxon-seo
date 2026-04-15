@@ -29,6 +29,12 @@ class SeoServiceProvider extends ServiceProvider {
                     return is_object(\$var) && method_exists(\$var, 'seo');
                 });
 
+                if (!\$model) {
+                    \$model = collect(request()->route()?->parameters())->first(function(\$var) {
+                        return is_object(\$var) && method_exists(\$var, 'seo');
+                    });
+                }
+
                 echo (new \Nicxon\Seo\SeoRenderer(\$model))->render(); 
             ?>";
         });
