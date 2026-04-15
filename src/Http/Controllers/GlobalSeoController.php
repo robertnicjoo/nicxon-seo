@@ -1,4 +1,5 @@
 <?php
+
 namespace Nicxon\Seo\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,17 +13,23 @@ class GlobalSeoController extends Controller {
     }
 
     public function update(Request $request) {
-        $imgPath = null;
+        $imgPath = $request->old_image;
+        
         if ($request->hasFile('nicxon_og_image')) {
             $imgPath = $request->file('nicxon_og_image')->store('seo', 'public');
         }
 
         SeoMeta::updateOrCreate(
-            ['seoable_type' => 'Global', 'seoable_id' => 0],
             [
-                'title' => $request->nicxon_seo_title,
-                'description' => $request->nicxon_seo_description,
-                'og_image' => $imgPath ?? $request->old_image
+                'seoable_type' => 'Global', 
+                'seoable_id'   => 0
+            ],
+            [
+                'seoable_type' => 'Global',
+                'seoable_id'   => 0,
+                'title'        => $request->nicxon_seo_title,
+                'description'  => $request->nicxon_seo_description,
+                'og_image'     => $imgPath
             ]
         );
 
