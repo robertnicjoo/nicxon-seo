@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class GlobalSeoController extends Controller {
     public function edit() {
         $global = SeoMeta::firstOrNew(['seoable_type' => 'Global', 'seoable_id' => 0]);
-        return view('nicxon-seo::global-form', compact('global'));
+        return view('nicxon-seo::global-form', ['model' => $global]);
     }
 
     public function update(Request $request) {
