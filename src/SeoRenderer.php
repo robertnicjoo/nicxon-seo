@@ -46,7 +46,6 @@ class SeoRenderer {
 
         return "
             <title>{$eTitle}</title>
-            <meta name='title' content='{$eTitle}'>
             <meta name='description' content='{$eDesc}'>
             <link rel='canonical' href='{$eUrl}'>
 
