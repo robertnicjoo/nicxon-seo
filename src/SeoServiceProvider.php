@@ -23,16 +23,12 @@ class SeoServiceProvider extends ServiceProvider {
 
         Blade::directive('nicxonSeo', function () {
             return "<?php 
-                // 1. Get all variables passed to the view via the View Factory
-                \$viewData = Array::wrap(view()->getShared());
-                \$allVars = array_merge(\$viewData, get_defined_vars());
+                \$allVars = array_merge((array) view()->getShared(), get_defined_vars());
 
-                // 2. Find the first object that has our SEO trait/method
                 \$model = collect(\$allVars)->first(function(\$var) {
                     return is_object(\$var) && method_exists(\$var, 'seo');
                 });
 
-                // 3. Render
                 echo (new \Nicxon\Seo\SeoRenderer(\$model))->render(); 
             ?>";
         });
