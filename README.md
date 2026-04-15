@@ -114,6 +114,9 @@ Add the `@nicxonSeo` directive to the `<head>` of your `app.blade.php` layout. I
 </html>
 ```
 
+**Note on Title Suffix:** You can customize how your brand appears across all sub-pages (e.g., `Post Title | YourBrand`) by modifying the `title_suffix` in your `config/nicxon-seo.php`.
+
+
 ### 💻 Console Commands
 
 Monitor your SEO health directly from the terminal with the built-in stats command:
@@ -135,6 +138,10 @@ This command provides a summary of how many models are optimized and whether you
 - **Real-time Preview:** Live Google search snippet preview with dynamic "Traffic Light" feedback.
 - **SEO Scoring:** Visual indicators (Green/Yellow/Red) based on industry-standard character lengths.
 - **Social Ready:** Automatic generation of OpenGraph (OG) tags and Twitter Cards.
+- **Pro-Grade Rendering Engine:**
+    - **XSS Protection:** All metadata is automatically escaped using Laravel's `e()` helper to prevent Cross-Site Scripting.
+    - **HTML Integrity:** Special characters (like `"`, `&`, and `<`) are converted to HTML entities, ensuring meta tags never break your layout.
+    - **Crawler Reliability:** Standardized rendering ensures your site is perfectly readable by Googlebot, Facebook, and Twitter scrapers.
 
 
 ## 📄 License
