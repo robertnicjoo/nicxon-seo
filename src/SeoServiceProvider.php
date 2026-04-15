@@ -30,5 +30,11 @@ class SeoServiceProvider extends ServiceProvider {
                 echo (new \Nicxon\Seo\SeoRenderer(\$model))->render(); 
             ?>";
         });
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Nicxon\Seo\Console\Commands\SeoStatsCommand::class,
+            ]);
+        }
     }
 }
