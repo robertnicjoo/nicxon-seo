@@ -56,5 +56,5 @@ return [
     | Example: 'layouts.app' or 'layouts.admin' if you have a custom admin layout.
     |
     */
-    'layout' => 'layouts.admin',
+    'layout' => 'nicxon-seo::layout',
 ];
