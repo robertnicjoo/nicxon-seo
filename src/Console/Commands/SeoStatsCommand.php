@@ -30,7 +30,7 @@ class SeoStatsCommand extends Command
         if ($total === 0) {
             $this->warn("Warning: You haven't set any SEO data yet!");
         } else {
-            $this->info("SEO Health: Looking good, Robert!");
+            $this->info("SEO Health: Looking good. Keep it up!");
         }
     }
 }
