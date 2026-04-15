@@ -48,7 +48,12 @@ class Post extends Model
 
 ### 2. Global SEO Settings
 
-You can manage your website's main SEO (Home page fallback and site-wide defaults) by visiting the built-in admin route: `YOUR_URL/admin/seo`
+Nicxon SEO comes with a built-in management panel for your website's main SEO (Home page fallback and site-wide defaults). You can access it at:
+
+`YOUR_URL/admin/seo`
+
+This is where you set the default meta title, description, and social sharing image that will be used when no specific model data is available.
+
 
 ### 3. Display the Form Fields
 
@@ -108,6 +113,17 @@ Add the `@nicxonSeo` directive to the `<head>` of your `app.blade.php` layout. I
     </body>
 </html>
 ```
+
+### 💻 Console Commands
+
+Monitor your SEO health directly from the terminal with the built-in stats command:
+
+```bash
+php artisan nicxon:seo-stats
+```
+
+This command provides a summary of how many models are optimized and whether your Global SEO settings are configured correctly.
+
 
 ---
 
