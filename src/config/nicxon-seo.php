@@ -45,4 +45,16 @@ return [
 
     'disk' => 'public',
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Layout
+    |--------------------------------------------------------------------------
+    |
+    | The layout that the Global SEO page will extend. 
+    | Default: 'nicxon-seo::layout'
+    | Example: 'layouts.app' or 'layouts.admin' if you have a custom admin layout.
+    |
+    */
+    'layout' => 'layouts.admin',
 ];
