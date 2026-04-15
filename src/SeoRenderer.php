@@ -11,24 +11,24 @@ class SeoRenderer {
     }
 
     public function render() {
-        // 1. Try to get data from the Model passed (or detected)
         if ($this->model && $this->model->seo) {
-            $data = $this->model->seo;
-        } 
-        // 2. Fallback to Global Settings row (where seoable_id is 0)
-        else {
-            $data = SeoMeta::where('seoable_type', 'Global')->first();
+            return $this->generateTags($this->model->seo);
         }
 
-        $title = $data->title ?? config('app.name');
-        $desc = $data->description ?? "Welcome to our site";
-        $img = $data->og_image ? asset('storage/'.$data->og_image) : '';
+        $global = SeoMeta::where('seoable_type', 'Global')->first();
+        if ($global) {
+            return $this->generateTags($global);
+        }
 
+        return '';
+    }
+
+    private function generateTags($meta) {
         return "
-            <title>{$title}</title>
-            <meta name='description' content='{$desc}'>
-            <meta property='og:title' content='{$title}'>
-            <meta property='og:image' content='{$img}'>
+            <title>{$meta->title}</title>
+            <meta name='description' content='{$meta->description}'>
+            <meta property='og:title' content='{$meta->title}'>
+            <meta property='og:image' content='" . asset('storage/' . $meta->og_image) . "'>
         ";
     }
 }
