@@ -1,4 +1,4 @@
-@extends('nicxon-seo::layout')
+@extends(config('nicxon-seo.layout', 'nicxon-seo::layout'))
 
 @section('content')
 <div class="max-w-4xl mx-auto p-6 bg-white dark:bg-slate-900 shadow-md rounded-lg border border-transparent dark:border-slate-800 transition-colors duration-300">
